@@ -48,6 +48,31 @@ class Table extends Component {
     }
   }
 
+  removeRow = () => {
+    // if the current number of rows is zero, do nothing
+    if (this.state.numRows === 0) {
+      return;
+    }
+
+    // decrease the number of rows by 1
+    this.setState({
+      numRows: this.state.numRows - 1,
+    })
+  }
+
+  removeColumn = () => {
+    // if the current number of columns is zero, do nothing
+    if (this.state.numCols === 0) {
+      return;
+    }
+
+    // decrease the number of columns by 1
+    this.setState({
+      numCols: this.state.numCols - 1,
+    })
+  }
+
+
   handleColorChange = (event) => {
     this.setState({selectedColor: event.target.value});
   }
