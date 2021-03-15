@@ -8,7 +8,8 @@ class Table extends Component {
     this.state = {
       numRows: 0,
       numCols: 0,
-      selectedColor: "red"
+      selectedColor: "red",
+      fillAllColor: ""
     }
   }
 
@@ -72,6 +73,13 @@ class Table extends Component {
     })
   }
 
+  fillAll = () => {
+    let cell = document.getElementsByTagName("td");   //array of all td tags
+    //changes background of each td
+    for (let i=0; i<cell.length; i++) {
+      cell[i].style.backgroundColor = this.state.selectedColor;
+    }
+  }
 
   handleColorChange = (event) => {
     this.setState({selectedColor: event.target.value});
