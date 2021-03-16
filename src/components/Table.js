@@ -1,5 +1,5 @@
 
-import { Component } from "react";
+import React, { Component } from "react";
 import TableRow from "./TableRow";
 
 class Table extends Component {
@@ -9,8 +9,9 @@ class Table extends Component {
       numRows: 0,
       numCols: 0,
       selectedColor: "red",
-      fillAllColor: ""
-    }
+      bgColor: "",
+    };
+    this.tableRef = React.createRef();
   }
 
   addRow = () => {
@@ -74,11 +75,12 @@ class Table extends Component {
   }
 
   fillAll = () => {
-    let cell = document.getElementsByTagName("td");   //array of all td tags
-    //changes background of each td
-    for (let i=0; i<cell.length; i++) {
-      cell[i].style.backgroundColor = this.state.selectedColor;
-    }
+    // let cell = document.getElementsByTagName("td");   //array of all td tags
+    // //changes background of each td
+    // for (let i=0; i<cell.length; i++) {
+    //   cell[i].style.backgroundColor = this.state.selectedColor;
+    // }
+    this.setState({bgColor: this.state.selectedColor});
   }
 
   handleColorChange = (event) => {
@@ -93,7 +95,7 @@ class Table extends Component {
     let rows = [];
 
     for (let i = 0; i < this.state.numRows; i++) {
-      rows.push(<TableRow numCols={this.state.numCols} handleApplyColor={this.handleApplyColor} />);
+      rows.push(<TableRow bgColor={this.state.bgColor} numCols={this.state.numCols} handleApplyColor={this.handleApplyColor} ref={this.tableRef} />);
     }
 
     return (
