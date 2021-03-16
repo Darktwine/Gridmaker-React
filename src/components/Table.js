@@ -23,7 +23,10 @@ class Table extends Component {
       this.setState(state => {
           return {
             numRows: addedRows,
-            numCols: state.numCols + 1 }
+            numCols: state.numCols + 1,
+            bgColorRow: state.numRows,
+            bgColorCol: state.numCols + 1,
+          }
       });
     }
     else{
@@ -41,7 +44,10 @@ class Table extends Component {
       this.setState(state => {
           return {
             numRows: state.numRows + 1,
-            numCols: addedCols }
+            numCols: addedCols,
+            bgColorRow: state.numRows + 1,
+            bgColorCol: state.numCols,
+          }
       });
     }
     else{
@@ -60,6 +66,7 @@ class Table extends Component {
     // decrease the number of rows by 1
     this.setState({
       numRows: this.state.numRows - 1,
+      bgColorRow: this.state.numRows - 1,
     })
   }
 
@@ -72,6 +79,7 @@ class Table extends Component {
     // decrease the number of columns by 1
     this.setState({
       numCols: this.state.numCols - 1,
+      bgColorCol: this.state.numCols - 1,
     })
   }
 
