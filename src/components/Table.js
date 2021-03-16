@@ -1,5 +1,5 @@
 
-import React, { Component } from "react";
+import { Component } from "react";
 import TableRow from "./TableRow";
 
 class Table extends Component {
@@ -10,8 +10,9 @@ class Table extends Component {
       numCols: 0,
       selectedColor: "red",
       bgColor: "",
+      bgColorRow: 0,
+      bgColorCol: 0,
     };
-    this.tableRef = React.createRef();
   }
 
   addRow = () => {
@@ -75,12 +76,13 @@ class Table extends Component {
   }
 
   fillAll = () => {
-    // let cell = document.getElementsByTagName("td");   //array of all td tags
-    // //changes background of each td
-    // for (let i=0; i<cell.length; i++) {
-    //   cell[i].style.backgroundColor = this.state.selectedColor;
-    // }
-    this.setState({bgColor: this.state.selectedColor});
+    //saves current color, row and column value to apply background color
+    //ensures new rows and columns won't get background color
+    this.setState({
+      bgColor: this.state.selectedColor,
+      bgColorRow: this.state.numRows,
+      bgColorCol: this.state.numCols,
+    });
   }
 
   handleColorChange = (event) => {
@@ -95,7 +97,12 @@ class Table extends Component {
     let rows = [];
 
     for (let i = 0; i < this.state.numRows; i++) {
-      rows.push(<TableRow bgColor={this.state.bgColor} numCols={this.state.numCols} handleApplyColor={this.handleApplyColor} ref={this.tableRef} />);
+      if (i < this.state.bgColorRow) {  //used by fillAll function to only apply background color to current cells
+        rows.push(<TableRow bgColor={this.state.bgColor} bgColorCol={this.state.bgColorCol} numCols={this.state.numCols} handleApplyColor={this.handleApplyColor} />);
+      }
+      else {
+        rows.push(<TableRow numCols={this.state.numCols} handleApplyColor={this.handleApplyColor} />);
+      }
     }
 
     return (
