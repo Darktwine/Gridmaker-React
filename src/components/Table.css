@@ -1,0 +1,23 @@
+button {
+    background-color: #E7BAF9;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 0px;
+}
+
+button:hover, select:hover {
+    background-color: #714881;
+    color: white;
+}
+
+select {
+    background-color: #E7BAF9;
+    color: black;
+    font-size: 20px;
+    width: 100px;
+    margin: 4px;
+}

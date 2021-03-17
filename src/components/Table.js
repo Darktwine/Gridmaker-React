@@ -1,6 +1,7 @@
 
 import { Component } from "react";
 import TableRow from "./TableRow";
+import './Table.css';
 
 class Table extends Component {
   constructor() {
