@@ -24,10 +24,15 @@ class Table extends Component {
           return {
             numRows: addedRows,
             numCols: state.numCols + 1,
-            bgColorRow: state.numRows,
-            bgColorCol: state.numCols + 1,
           }
       });
+    }
+    //prevents new rows from having background color
+    else if (this.state.bgColorRow > this.state.numRows) {
+      this.setState({
+        bgColorRow: this.state.numRows,
+        numRows: this.state.numRows + 1,
+      })
     }
     else{
       this.setState(state => {
@@ -45,10 +50,15 @@ class Table extends Component {
           return {
             numRows: state.numRows + 1,
             numCols: addedCols,
-            bgColorRow: state.numRows + 1,
-            bgColorCol: state.numCols,
           }
       });
+    }
+    //prevents new columns from having background color
+    else if (this.state.bgColorCol > this.state.numCols) {
+      this.setState({
+        bgColorCol: this.state.numCols,
+        numCols: this.state.numCols + 1,
+      })
     }
     else{
       this.setState(state => {
@@ -66,7 +76,6 @@ class Table extends Component {
     // decrease the number of rows by 1
     this.setState({
       numRows: this.state.numRows - 1,
-      bgColorRow: this.state.numRows - 1,
     })
   }
 
@@ -79,7 +88,6 @@ class Table extends Component {
     // decrease the number of columns by 1
     this.setState({
       numCols: this.state.numCols - 1,
-      bgColorCol: this.state.numCols - 1,
     })
   }
 
