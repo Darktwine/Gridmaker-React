@@ -109,6 +109,15 @@ class Table extends Component {
   handleApplyColor = (event) => {
     event.target.style.backgroundColor = this.state.selectedColor;
   }
+  
+  clear = () => {
+    this.setState(
+      {
+      bgColor: this.state.Color = 'white',
+      bgColorRow: this.state.numRows,
+      bgColorCol: this.state.numCols,
+      });
+  }
 
   render() {
     let rows = [];
