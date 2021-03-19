@@ -17,10 +17,12 @@ class Table extends Component {
   }
 
   addRow = () => {
-    let addedRows = this.state.numRows + 1;
-    let cols = this.state.numCols;
+    let addedRows = this.state.numRows + 1; //add to the row count
+    let cols = this.state.numCols; //gets amount of columns
 
+    //if there are 0 columns
     if(cols === 0){
+      //set the state 
       this.setState(state => {
           return {
             numRows: addedRows,
@@ -43,10 +45,12 @@ class Table extends Component {
   }
 
   addColumn = () => {
-    let addedCols = this.state.numCols + 1;
-    let rows = this.state.numRows;
+    let addedCols = this.state.numCols + 1; //add to the col count
+    let rows = this.state.numRows; //get amount of rows
 
+    //if there are 0 rows
     if(rows === 0){
+      //set state
       this.setState(state => {
           return {
             numRows: state.numRows + 1,
