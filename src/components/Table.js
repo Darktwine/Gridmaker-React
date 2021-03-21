@@ -102,6 +102,13 @@ class Table extends Component {
     });
   }
 
+  fillUncolored = () => {
+    this.setState(
+      {
+        if (this.state.bgColor = selectedColor)
+      }
+    )
+  }
   handleColorChange = (event) => {
     this.setState({selectedColor: event.target.value});
   }
