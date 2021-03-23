@@ -9,9 +9,6 @@ class Table extends Component {
       numRows: 0,
       numCols: 0,
       selectedColor: "red",
-      bgColor: "",
-      bgColorRow: 0,
-      bgColorCol: 0,
     };
   }
 
@@ -92,13 +89,11 @@ class Table extends Component {
   }
 
   fillAll = () => {
-    //saves current color, row and column value to apply background color
-    //ensures new rows and columns won't get background color
-    this.setState({
-      bgColor: this.state.selectedColor,
-      bgColorRow: this.state.numRows,
-      bgColorCol: this.state.numCols,
-    });
+    let tableCell = document.getElementsByTagName("td");
+    console.log(tableCell.length);
+    for (let i = 0; i < tableCell.length; i++) {
+        tableCell[i].style.backgroundColor = this.state.selectedColor;
+    }
   }
 
   handleColorChange = (event) => {
@@ -113,12 +108,7 @@ class Table extends Component {
     let rows = [];
 
     for (let i = 0; i < this.state.numRows; i++) {
-      if (i < this.state.bgColorRow) {  //used by fillAll function to only apply background color to current cells
-        rows.push(<TableRow bgColor={this.state.bgColor} bgColorCol={this.state.bgColorCol} numCols={this.state.numCols} handleApplyColor={this.handleApplyColor} />);
-      }
-      else {
-        rows.push(<TableRow numCols={this.state.numCols} handleApplyColor={this.handleApplyColor} />);
-      }
+      rows.push(<TableRow numCols={this.state.numCols} handleApplyColor={this.handleApplyColor} />);
     }
 
     return (
