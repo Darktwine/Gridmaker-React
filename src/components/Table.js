@@ -93,13 +93,11 @@ class Table extends Component {
   }
 
   fillAll = () => {
-    //saves current color, row and column value to apply background color
-    //ensures new rows and columns won't get background color
-    this.setState({
-      bgColor: this.state.selectedColor,
-      bgColorRow: this.state.numRows,
-      bgColorCol: this.state.numCols,
-    });
+    let tableCell = document.getElementsByTagName("td");
+    console.log(tableCell.length);
+    for (let i = 0; i < tableCell.length; i++) {
+        tableCell[i].style.backgroundColor = this.state.selectedColor;
+    }
   }
 
   fillUncolored = () => {
@@ -119,6 +117,7 @@ class Table extends Component {
       uncoloredCells[i].style.backgroundColor = this.state.selectedColor; 
     }
   }
+
   handleColorChange = (event) => {
     this.setState({selectedColor: event.target.value});
   }
@@ -128,26 +127,12 @@ class Table extends Component {
   }
   
   clear = () => {
-    this.setState(
-      {
-      bgColor: 'white',
-      bgColorRow: this.state.numRows,
-      bgColorCol: this.state.numCols,
-      });
-    /*if (this.addRow)
+    let tableCell = document.getElementsByTagName("td");
+    // clear every cell
+    for (let i = 0; i < tableCell.length; i++) 
     {
-      this.setState(
-      {
-        bgColor: 'white'
-      });
-    } */
-
-
-     /* <button onClick={this.addColumn}>Add Column</button>
-      <button onClick={this.removeRow}>Remove Row</button>
-      <button onClick={this.removeColumn}>Remove Column</button>
-      <button onClick={this.fillUncolored}>Fill Uncolored Cells</button>
-      <button onClick={this.fillAll}>Fill All</button>)  */
+      tableCell[i].style.backgroundColor = "white";
+    }
   }
 
   render() {
