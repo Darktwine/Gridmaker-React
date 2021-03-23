@@ -103,11 +103,21 @@ class Table extends Component {
   }
 
   fillUncolored = () => {
-    this.setState(
+    let uncoloredCells = [];
+    let tableCell = document.getElementsByTagName("td");
+    for (let i =0; i < tableCell.length; i++)
+    { //checks if background color for each cell is undefined. 
+      //if true set background color
+      if (tableCell[i].style.backgroundColor == "white") 
       {
-        if (this.state.bgColor = selectedColor)
+        tableCell[i].style.backgroundColor = this.state.selectedColor;
       }
-    )
+    }
+    //fills every uncolored cell with the selected color
+    for (let i = 0; i < uncoloredCells.length; i++)
+    {
+      uncoloredCells[i].style.backgroundColor = this.state.selectedColor; 
+    }
   }
   handleColorChange = (event) => {
     this.setState({selectedColor: event.target.value});
@@ -120,10 +130,24 @@ class Table extends Component {
   clear = () => {
     this.setState(
       {
-      bgColor: this.state.Color = 'white',
+      bgColor: 'white',
       bgColorRow: this.state.numRows,
       bgColorCol: this.state.numCols,
       });
+    /*if (this.addRow)
+    {
+      this.setState(
+      {
+        bgColor: 'white'
+      });
+    } */
+
+
+     /* <button onClick={this.addColumn}>Add Column</button>
+      <button onClick={this.removeRow}>Remove Row</button>
+      <button onClick={this.removeColumn}>Remove Column</button>
+      <button onClick={this.fillUncolored}>Fill Uncolored Cells</button>
+      <button onClick={this.fillAll}>Fill All</button>)  */
   }
 
   render() {
