@@ -99,6 +99,7 @@ class Table extends Component {
     for (let i = 0; i < tableCell.length; i++) {
         tableCell[i].style.backgroundColor = this.state.selectedColor;
     }
+  }
     
   fillUncolored = () => {
     let uncoloredCells = [];
