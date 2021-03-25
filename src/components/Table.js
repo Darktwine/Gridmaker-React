@@ -10,17 +10,16 @@ class Table extends Component {
       numRows: 0,
       numCols: 0,
       selectedColor: "red",
-      bgColor: "",
-      bgColorRow: 0,
-      bgColorCol: 0,
     };
   }
 
   addRow = () => {
-    let addedRows = this.state.numRows + 1;
-    let cols = this.state.numCols;
+    let addedRows = this.state.numRows + 1; //add to the row count
+    let cols = this.state.numCols; //gets amount of columns
 
+    //if there are 0 columns
     if(cols === 0){
+      //set the state 
       this.setState(state => {
           return {
             numRows: addedRows,
@@ -43,10 +42,12 @@ class Table extends Component {
   }
 
   addColumn = () => {
-    let addedCols = this.state.numCols + 1;
-    let rows = this.state.numRows;
+    let addedCols = this.state.numCols + 1; //add to the col count
+    let rows = this.state.numRows; //get amount of rows
 
+    //if there are 0 rows
     if(rows === 0){
+      //set state
       this.setState(state => {
           return {
             numRows: state.numRows + 1,
@@ -98,8 +99,7 @@ class Table extends Component {
     for (let i = 0; i < tableCell.length; i++) {
         tableCell[i].style.backgroundColor = this.state.selectedColor;
     }
-  }
-
+    
   fillUncolored = () => {
     let uncoloredCells = [];
     let tableCell = document.getElementsByTagName("td");
@@ -139,12 +139,7 @@ class Table extends Component {
     let rows = [];
 
     for (let i = 0; i < this.state.numRows; i++) {
-      if (i < this.state.bgColorRow) {  //used by fillAll function to only apply background color to current cells
-        rows.push(<TableRow bgColor={this.state.bgColor} bgColorCol={this.state.bgColorCol} numCols={this.state.numCols} handleApplyColor={this.handleApplyColor} />);
-      }
-      else {
-        rows.push(<TableRow numCols={this.state.numCols} handleApplyColor={this.handleApplyColor} />);
-      }
+      rows.push(<TableRow numCols={this.state.numCols} handleApplyColor={this.handleApplyColor} />);
     }
 
     return (
