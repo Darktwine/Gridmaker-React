@@ -99,6 +99,23 @@ class Table extends Component {
     for (let i = 0; i < tableCell.length; i++) {
         tableCell[i].style.backgroundColor = this.state.selectedColor;
     }
+    
+  fillUncolored = () => {
+    let uncoloredCells = [];
+    let tableCell = document.getElementsByTagName("td");
+    for (let i =0; i < tableCell.length; i++)
+    { //checks if background color for each cell is undefined. 
+      //if true set background color
+      if (tableCell[i].style.backgroundColor == "white") 
+      {
+        tableCell[i].style.backgroundColor = this.state.selectedColor;
+      }
+    }
+    //fills every uncolored cell with the selected color
+    for (let i = 0; i < uncoloredCells.length; i++)
+    {
+      uncoloredCells[i].style.backgroundColor = this.state.selectedColor; 
+    }
   }
 
   handleColorChange = (event) => {
@@ -107,6 +124,15 @@ class Table extends Component {
 
   handleApplyColor = (event) => {
     event.target.style.backgroundColor = this.state.selectedColor;
+  }
+  
+  clear = () => {
+    let tableCell = document.getElementsByTagName("td");
+    // clear every cell
+    for (let i = 0; i < tableCell.length; i++) 
+    {
+      tableCell[i].style.backgroundColor = "white";
+    }
   }
 
   render() {
