@@ -107,7 +107,7 @@ class Table extends Component {
     for (let i =0; i < tableCell.length; i++)
     { //checks if background color for each cell is undefined. 
       //if true set background color
-      if (tableCell[i].style.backgroundColor == "white") 
+      if ((tableCell[i].style.backgroundColor == "white") || (tableCell[i].style.backgroundColor == "")) 
       {
         tableCell[i].style.backgroundColor = this.state.selectedColor;
       }
