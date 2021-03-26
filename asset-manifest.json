@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Gridmaker-React/static/css/main.6f1a885c.chunk.css",
+    "main.js": "/Gridmaker-React/static/js/main.619ddc91.chunk.js",
+    "main.js.map": "/Gridmaker-React/static/js/main.619ddc91.chunk.js.map",
+    "runtime-main.js": "/Gridmaker-React/static/js/runtime-main.d72b26b9.js",
+    "runtime-main.js.map": "/Gridmaker-React/static/js/runtime-main.d72b26b9.js.map",
+    "static/js/2.36a65468.chunk.js": "/Gridmaker-React/static/js/2.36a65468.chunk.js",
+    "static/js/2.36a65468.chunk.js.map": "/Gridmaker-React/static/js/2.36a65468.chunk.js.map",
+    "static/js/3.9b34138b.chunk.js": "/Gridmaker-React/static/js/3.9b34138b.chunk.js",
+    "static/js/3.9b34138b.chunk.js.map": "/Gridmaker-React/static/js/3.9b34138b.chunk.js.map",
+    "index.html": "/Gridmaker-React/index.html",
+    "static/css/main.6f1a885c.chunk.css.map": "/Gridmaker-React/static/css/main.6f1a885c.chunk.css.map",
+    "static/js/2.36a65468.chunk.js.LICENSE.txt": "/Gridmaker-React/static/js/2.36a65468.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d72b26b9.js",
+    "static/js/2.36a65468.chunk.js",
+    "static/css/main.6f1a885c.chunk.css",
+    "static/js/main.619ddc91.chunk.js"
+  ]
+}
