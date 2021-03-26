@@ -1,3 +1,3 @@
 # Gridmaker React App
 
-## [View Gridmaker App](Darktwine.github.io/Gridmaker-React)
+## [View Gridmaker App] (https://darktwine.github.io/Gridmaker-React/)
